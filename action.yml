@@ -8,9 +8,10 @@ inputs:
   mergeBranch:
     description: 배포할 Feature Branch를 입력해주세요.
     required: true
-outputs:
-  tag:
-    description: "생성된 태그"
+  token:
+    description: 'github token'
+    required: true
+
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'index.ts'

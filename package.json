@@ -1,15 +1,19 @@
 {
-  "name": "create-tag-release-note",
+  "name": "create-tag-pull-request",
   "version": "1.0.0",
   "description": "test",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }
