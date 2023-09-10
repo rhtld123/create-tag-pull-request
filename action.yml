@@ -1,0 +1,16 @@
+name: "Generate Tag & Create Pull Request"
+description: "태그를 생성하고, Pull Request를 생성합니다."
+inputs:
+  increaseVersion:
+    description: '버전업 할 버전종류를 입력해주세요.'
+    required: true
+    default: 'minor'
+  mergeBranch:
+    description: 배포할 Feature Branch를 입력해주세요.
+    required: true
+outputs:
+  tag:
+    description: "생성된 태그"
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
