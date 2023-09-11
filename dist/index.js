@@ -9698,6 +9698,7 @@ function run() {
                 repo,
                 branch: 'master' // or 'main', depending on your default branch name
             });
+            console.log("master", master);
             const masterSha = master.commit.sha;
             const releaseBranch = "release/" + incrementVersion;
             const response = yield octokit.rest.git.createRef({
@@ -9742,7 +9743,7 @@ function run() {
     });
 }
 function getIncrementVersion(lastVerison, increaseVersion) {
-    const versions = lastVerison.split(",");
+    const versions = lastVerison.split(".");
     console.log("versions = ", versions);
     if (increaseVersion === "major") {
         return (Number(versions[0]) + 1).toString() + ".0.0";
