@@ -82,6 +82,7 @@ async function run() {
 
 function getIncrementVersion(lastVerison: string, increaseVersion: string): string {
   const versions = lastVerison.split(",");
+  console.log("versions = ", versions);
   if (increaseVersion === "major") {
     return (Number(versions[0]) + 1).toString() + ".0.0"
   }
