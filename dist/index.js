@@ -1,92 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4716:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var core = __nccwpck_require__(4181);
-var github = __nccwpck_require__(2726);
-function run() {
-    return __awaiter(this, void 0, void 0, function () {
-        var increaseVersion, mergeBranch, token, octokit, tags, error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    increaseVersion = core.getInput('increaseVersion');
-                    mergeBranch = core.getInput('mergeBranch');
-                    token = core.getInput('token');
-                    octokit = github.getOctokit(token);
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, octokit.repos.listTags({
-                            owner: owner,
-                            repo: repo,
-                            per_page: 1, // Limit to the latest tag
-                        })];
-                case 2:
-                    tags = (_a.sent()).data;
-                    if (tags.length === 0) {
-                        console.log("No tags found");
-                        return [2 /*return*/];
-                    }
-                    console.log("Latest tag is ".concat(tags[0].name));
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_1 = _a.sent();
-                    if (error_1 instanceof Error) {
-                        core.setFailed(error_1.message);
-                    }
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
-            }
-        });
-    });
-}
-run();
-
-
-/***/ }),
-
 /***/ 9777:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -9717,6 +9631,152 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 5747:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const core = __importStar(__nccwpck_require__(4181));
+const github = __importStar(__nccwpck_require__(2726));
+function run() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const increaseVersion = core.getInput('increaseVersion');
+        const mergeBranch = core.getInput('mergeBranch');
+        const token = core.getInput('token');
+        const octokit = github.getOctokit(token);
+        const context = github.context;
+        const owner = context.repo.owner;
+        const repo = context.repo.repo;
+        let tag;
+        try {
+            const { data: tags } = yield octokit.rest.repos.listTags({
+                owner,
+                repo,
+                per_page: 1,
+            });
+            if (tags.length === 0) {
+                console.log("태그가 존재하지 않습니다. 0.0.0 으로 태그 생성을 진행합니다.");
+                tag = "0.0.0";
+            }
+            tag = tags[0].name;
+            const incrementVersion = getIncrementVersion(tag, increaseVersion);
+            const { data: master } = yield octokit.rest.repos.getBranch({
+                owner,
+                repo,
+                branch: 'master' // or 'main', depending on your default branch name
+            });
+            const masterSha = master.commit.sha;
+            const releaseBranch = "release/" + incrementVersion;
+            const response = yield octokit.rest.git.createRef({
+                owner,
+                repo,
+                ref: `refs/heads/${releaseBranch}`,
+                sha: masterSha
+            });
+            console.log(`브랜치를 생성합니다. branch: ${releaseBranch}`);
+            const mergeBranches = mergeBranch.split(",");
+            for (const branch of mergeBranches) {
+                yield octokit.rest.repos.merge({
+                    owner,
+                    repo,
+                    base: releaseBranch,
+                    head: branch.trim()
+                });
+            }
+            //PR 생성
+            console.log("병합할 Branch들의 Pull Request Title을 가져옵니다.");
+            // @ts-ignore
+            const pullRequestTitles = yield getPullRequestTitles(owner, repo, mergeBranches);
+            console.log("Pull Request를 생성합니다.");
+            const title = "v" + incrementVersion + " 배포";
+            const head = "master";
+            const base = releaseBranch;
+            const body = pullRequestTitles.join('\n');
+            const { data } = yield octokit.rest.pulls.create({
+                owner,
+                repo,
+                title,
+                head,
+                base,
+                body
+            });
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                core.setFailed(error.message);
+            }
+        }
+    });
+}
+function getIncrementVersion(lastVerison, increaseVersion) {
+    const versions = lastVerison.split(",");
+    if (increaseVersion === "major") {
+        return (Number(versions[0]) + 1).toString() + ".0.0";
+    }
+    if (increaseVersion === "minor") {
+        return versions[0] + "." + (Number(versions[1]) + 1).toString() + ".0";
+    }
+    if (increaseVersion === "patch") {
+        return versions[0] + "." + versions[1] + "." + (Number(versions[2]) + 1).toString();
+    }
+    throw new Error("해당 버전종류는 지원하지 않습니다.");
+}
+function getPullRequestTitles(octokit, owner, repo, branchNames) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const pullRequestTitles = [];
+        for (const branchName of branchNames) {
+            const pullRequests = yield octokit.paginate(octokit.rest.pulls.list.endpoint.merge({
+                owner,
+                repo,
+                state: 'all',
+            }));
+            const pr = pullRequests.find((pr) => pr.head.ref === branchName);
+            if (pr) {
+                // @ts-ignore
+                pullRequestTitles.push(pr.title);
+            }
+        }
+        return pullRequestTitles;
+    });
+}
+run();
+
+
+/***/ }),
+
 /***/ 2209:
 /***/ ((module) => {
 
@@ -9895,7 +9955,7 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(4716);
+/******/ 	var __webpack_exports__ = __nccwpck_require__(5747);
 /******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
