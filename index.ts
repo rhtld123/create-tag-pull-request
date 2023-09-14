@@ -45,6 +45,7 @@ async function run() {
     console.log(`브랜치를 생성합니다. branch: ${releaseBranch}`);
 
     const mergeBranches = mergeBranch.split(",");
+    console.log(mergeBranches)
     for (const branch of mergeBranches) {
       await octokit.rest.repos.merge({
         owner,
