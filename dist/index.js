@@ -9771,7 +9771,7 @@ function getPullRequestTitles(octokit, owner, repo, branchNames) {
             const pr = pullRequests.find((pr) => pr.head.ref === branchName);
             if (pr) {
                 // @ts-ignore
-                pullRequestTitles.push(pr.title);
+                pullRequestTitles.push("* " + pr.title);
             }
         }
         return pullRequestTitles;

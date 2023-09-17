@@ -117,7 +117,7 @@ async function getPullRequestTitles(octokit: Octokit, owner: string, repo: strin
 
     if (pr) {
       // @ts-ignore
-      pullRequestTitles.push(pr.title);
+      pullRequestTitles.push("* " + pr.title);
     }
   }
 
