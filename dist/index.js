@@ -9760,6 +9760,7 @@ function getIncrementVersion(lastVerison, increaseVersion) {
 function getPullRequestTitles(octokit, owner, repo, branchNames) {
     return __awaiter(this, void 0, void 0, function* () {
         const pullRequestTitles = [];
+        console.log("branchNames = ", branchNames);
         for (const branchName of branchNames) {
             const pullRequests = yield octokit.paginate(octokit.rest.pulls.list.endpoint.merge({
                 owner,

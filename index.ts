@@ -1,6 +1,8 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+
 type Octokit = ReturnType<typeof github.getOctokit>;
+
 async function run() {
   const increaseVersion: string = core.getInput('increaseVersion');
   const mergeBranch: string = core.getInput('mergeBranch');
@@ -102,7 +104,7 @@ function getIncrementVersion(lastVerison: string, increaseVersion: string): stri
 
 async function getPullRequestTitles(octokit: Octokit, owner: string, repo: string, branchNames: string[]): Promise<string[]> {
   const pullRequestTitles = [];
-
+  console.log("branchNames = ", branchNames);
   for (const branchName of branchNames) {
     const pullRequests = await octokit.paginate(octokit.rest.pulls.list.endpoint.merge({
       owner,
@@ -110,7 +112,7 @@ async function getPullRequestTitles(octokit: Octokit, owner: string, repo: strin
       state: 'all',
     }));
 
-    const pr = pullRequests.find((pr:any) => pr.head.ref === branchName);
+    const pr = pullRequests.find((pr: any) => pr.head.ref === branchName);
 
     if (pr) {
       // @ts-ignore
