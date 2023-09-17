@@ -9721,7 +9721,7 @@ function run() {
             //PR 생성
             console.log("병합할 Branch들의 Pull Request Title을 가져옵니다.");
             // @ts-ignore
-            const pullRequestTitles = yield getPullRequestTitles(owner, repo, mergeBranches);
+            const pullRequestTitles = yield getPullRequestTitles(octokit, owner, repo, mergeBranches);
             console.log("Pull Request를 생성합니다.");
             const title = "v" + incrementVersion + " 배포";
             const head = "master";
